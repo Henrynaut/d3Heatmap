@@ -16,10 +16,10 @@
     </head>
 
     <body>
-         <input type="range" min="0" max="2" id="#nRadius">  
+         <!-- <input type="range" min="0" max="2" id="#nRadius">   -->
     <script>
 
-    var datasets = ["control_tree.csv", "control.csv"];
+    var datasets = ["control_maps.csv", "control_charts.csv", "control_tree.csv", "control_pcp.csv", "n_maps.csv", "n_charts.csv", "n_tree.csv", "n_pcp.csv"];
 
     var svg = d3.select("svg"),
         width = +svg.attr("width"),
@@ -105,8 +105,9 @@
         });
     };
     // Type in the index of the heatmap you'd like to switch to.
-        heatmapChart(datasets[0]);
-    
+        var i = 3
+        heatmapChart(datasets[i]);
+        console.log(datasets[i]);
 
         // var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
         //     .data(datasets);
