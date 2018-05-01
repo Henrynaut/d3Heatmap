@@ -19,7 +19,22 @@
          <!-- <input type="range" min="0" max="2" id="#nRadius">   -->
     <script>
 
-    var datasets = ["control_maps.csv", "control_charts.csv", "control_tree.csv", "control_pcp.csv", "n_maps.csv", "n_charts.csv", "n_tree.csv", "n_pcp.csv"];
+    var i = 10          // Index to select which heatmap is displayed
+
+    var datasets = ["control_maps.csv",     //0 index
+                    "expert_maps.csv",      //1
+                    "n_maps.csv",           //2
+                    "control_charts.csv",   //3
+                    "expert_charts.csv",    //4
+                    "n_charts.csv",         //5
+                    "control_tree.csv",     //6
+                    "expert_tree.csv",      //7
+                    "n_tree.csv",           //8
+                    "control_pcp.csv",      //9
+                    "expert_pcp.csv",       //10
+                    "n_pcp.csv"];           //11 index
+
+
 
     var svg = d3.select("svg"),
         width = +svg.attr("width"),
@@ -75,8 +90,18 @@
         if (error) throw error;
 
         svg.append("g")
-            // .attr("stroke", "lightblue")
-            .attr("stroke", function(d) { return color(50); })
+            // .attr("stroke", function(d) { return color(100); })
+            // .attr("stroke", "limegreen")
+            // .attr("stroke", "crimson")
+            .attr("stroke", "lightblue")
+
+
+                    //Crimson
+                    //Maroon
+                    //LightGreen
+                    //LimenGreen
+
+            .attr("opacity", 0.3)
             .selectAll("circle")
             .data(diamonds)
             .enter().append("circle")
@@ -100,12 +125,15 @@
             (diamonds))
             .enter().append("path")
             // .attr("fill", function(d) { return color(d.value); })
+            // .attr("fill", "lightgreen")
+            // .attr("fill", "maroon")
             .attr("fill", "steelblue")
+
             .attr("d", d3.geoPath());
+
         });
     };
     // Type in the index of the heatmap you'd like to switch to.
-        var i = 3
         heatmapChart(datasets[i]);
         console.log(datasets[i]);
 
